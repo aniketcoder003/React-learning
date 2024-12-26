@@ -1,18 +1,16 @@
 import './App.css'
-
+import Heading from './components/Heading'
+import Items from './components/Items'
+import Error from './components/Error'
 function App() {
- 
+  
+  let food=["dal","rice","ghee","salad","fruits"]
   
   return <>
            <div className="main-container">
-           <h2>Healhty Food</h2>
-           <ul class="list-group">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
-          </ul>
+           <Heading ></Heading>
+           <Error data={food}></Error>
+           <Items data={food}></Items>
            </div>    
   </>
    
