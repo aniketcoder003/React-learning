@@ -1,7 +1,15 @@
-import style from "./Items.module.css"
-function Item ({data}){
+import style from "./Item.module.css"
+function Item ({data, handleonclick}){
+   
+
+
 	return <>
-         <li className={`list-group-item ${style['my-items']}`}>{data}</li>
+         <li style={{color: "red"}} className={`list-group-item ${style['my-items']}`}>{data}
+		 
+		 <button className={`btn btn-info  ${style['my-btn']} `} 
+		  onClick={handleonclick}
+		 >buy</button>
+		 </li>
 	</>
 }
 

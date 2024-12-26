@@ -1,4 +1,6 @@
 .my-h2{
 	text-align:center;
-	color:brown
+	color:brown;
+	background-color:rgb(225, 224, 224);
+	border-radius:10px;
 }
