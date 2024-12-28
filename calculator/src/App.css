@@ -1,0 +1,25 @@
+.container{
+   width:300px;
+   border:2px solid black;
+   margin:20px;
+   border-radius: 10px;;
+
+}
+
+.my-btn{
+	display:  flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+}
+
+input {
+	width:85%;
+	padding: 10px;
+	margin:10px;
+	margin-top:20px;
+	font-size: 30px;
+	border-radius: 10px;
+	
+	
+}
