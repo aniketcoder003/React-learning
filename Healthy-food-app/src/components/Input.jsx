@@ -1,6 +1,6 @@
 import style from "./Input.module.css";
 
-function Input({handleonchange}) {
+function Input({handleonkeydown}) {
 	
   return (
     <>
@@ -8,7 +8,7 @@ function Input({handleonchange}) {
         type="text"
         placeholder="enter food here "
         className={style["my-input"]}
-		onChange={handleonchange}
+		onKeyDown={handleonkeydown}
       ></input>
     </>
   );

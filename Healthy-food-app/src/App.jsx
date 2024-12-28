@@ -4,23 +4,31 @@ import Items from './components/Items'
 import Error from './components/Error'
 import Container from './components/Container'
 import Input from './components/Input'
+import {useState} from 'react'
 function App() {
   
-  let food=["dal","rice","ghee","salad","fruits"]
+ 
 
-  let text="input"
-  const handleonchange=(event)=>{
-    console.log(event.target.value)
-    text=event.target.value;
+  let [food , set]=useState([]);
+ 
+
+  const handleonkeydown=(event)=>{
+     console.log(event)
+    if(event.key==='Enter')
+    { 
+      let foods =[...food,event.target.value]
+      event.target.value='';
+      set(foods);
+
+    }
  }
   
   return <>
           <Container>
            <Heading ></Heading>
-           <Input handleonchange={handleonchange}></Input>
-           <p>{text}</p>
+           <Input handleonkeydown={handleonkeydown}></Input>
            <Error data={food}></Error>
-           <Items data={food}  ></Items>
+           <Items data={food} ></Items>
            </Container>
 
            
