@@ -1,46 +1,59 @@
-import style from "./Add.module.css"
-import { useState } from "react";
+import style from "./Add.module.css";
+import { useRef } from "react";
 import { MdAddTask } from "react-icons/md";
-const Add=({handleonclick})=>{
-    
-	const [text,set]=useState('');
-	const [text2,settext2]=useState('');
+import { Item1 } from "../Store/item1"
+import { useContext } from "react";
+import Item from "./Item";
 
-	const handleonchange =(event)=>{
-		set(event.target.value)
-		// event.target.value='';
-	}
 
-	const handleonchangedate=(event)=>{
-		settext2(event.target.value)
-	}
+const Add = () => {
 
-	const setonclick=()=>{
-		handleonclick(text,text2);
-		set('');
-		settext2('')
+ const {addnewitem}=useContext(Item1)
+  const task=useRef();
+  const date=useRef();
+ 
 
-	}
-     
-	return <>
-	       <div className={`container ${style['my-container']}`}>
-                <div className={`row ${style.myrow}`}>
-                <div className="col-3 column">
-				<input type="text" placeholder="enter task here" onChange={handleonchange} value={text}></input>
-				</div>
-                <div className="col-2 column">
-				<input type="date"  onChange={handleonchangedate}  value={text2}></input>
-				</div>
-                <div className="col-1 column">
-				<button type="button" className="btn btn-success"  onClick={setonclick}>
-				<MdAddTask />
+  const setonclick = (event) => {
 
-				</button>
-				</div>
-                </div>
-           </div>
+	event.preventDefault();
+  addnewitem(task.current.value, date.current.value);
+    task.current.value=''
+    date.current.value=''
 
-	</>
-}
+  };
+
+  return (
+    <>
+      <div className={`container ${style["my-container"]}`}>
+        <form className={`row ${style.myrow}`}
+		 onSubmit={setonclick}
+		>
+          <div className="col-3 column">
+            <input
+              type="text"
+			  ref={task}
+              placeholder="enter task here"
+             
+            ></input>
+          </div>
+          <div className="col-2 column">
+            <input
+              type="date"
+              ref={date}
+            ></input>
+          </div>
+          <div className="col-1 column">
+            <button            
+              className="btn btn-success"
+              onClick={setonclick}
+            >
+              <MdAddTask />
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
+  );
+};
 
 export default Add;

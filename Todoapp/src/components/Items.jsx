@@ -1,8 +1,13 @@
 import Item from "./Item";
+import { Item1 } from "../Store/item1"
+import { useContext } from "react";
 
-const Items=({data,handleonclick})=>{
+const Items=({handleonclick})=>{
+
+	const {array,}=useContext(Item1)
+	// console.log(datacontext)
 	return <>
-          {data.map((item)=>(<Item task={item.task} date={item.date} handleonclick={handleonclick}></Item>))}
+          {array.map((item)=>(<Item task={item.task} date={item.date} handleonclick={handleonclick}></Item>))}
 	</>
 }
 
